@@ -1,7 +1,7 @@
 numpy
 pandas
 seaborn
-matplotlib.pyplot
+matplotlib
 plotly_express
 streamlit
 base64

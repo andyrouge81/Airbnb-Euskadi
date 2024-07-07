@@ -7,7 +7,6 @@ streamlit
 datetime 
 requests
 BeautifulSoup
-st_folium
 folium
 folium_static
 folium.plugins

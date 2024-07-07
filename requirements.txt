@@ -7,8 +7,6 @@ streamlit
 datetime 
 requests
 BeautifulSoup
-folium_static
-folium.plugins
 HeatMap
 folium.plugins
 FastMarkerCluster

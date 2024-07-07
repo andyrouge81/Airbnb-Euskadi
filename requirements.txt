@@ -7,7 +7,6 @@ streamlit
 datetime 
 requests
 BeautifulSoup
-folium
 folium_static
 folium.plugins
 HeatMap

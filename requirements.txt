@@ -7,7 +7,6 @@ streamlit
 datetime 
 requests
 BeautifulSoup
-sns.set
 plotly
 st_folium
 folium

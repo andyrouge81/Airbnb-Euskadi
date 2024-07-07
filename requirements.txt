@@ -1,22 +1,21 @@
 
 numpy
 pandas
-import csv
-import seaborn as sns
-import matplotlib.pyplot as plt
-import plotly_express as px
-import streamlit as st
-import base64
+csv
+seaborn
+matplotlib.pyplot
+plotly_express
+streamlit
+base64
 from datetime import datetime 
 from dateutil.relativedelta import relativedelta
-import requests
+requests
 from bs4 import BeautifulSoup
 sns.set()
-import plotly as pt
+plotly
 from streamlit_folium import st_folium
-import folium
+folium
 from streamlit_folium import folium_static
 from folium.plugins import HeatMap
 from folium.plugins import FastMarkerCluster
-import streamlit as st
-import requests
+requests

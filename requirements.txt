@@ -11,7 +11,7 @@ datetime
 relativedelta
 requests
 BeautifulSoup
-sns.set()
+sns.set
 plotly
 st_folium
 folium

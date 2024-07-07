@@ -10,12 +10,12 @@ base64
 datetime 
 relativedelta
 requests
-bs4 import BeautifulSoup
+BeautifulSoup
 sns.set()
 plotly
-streamlit_folium import st_folium
+st_folium
 folium
-streamlit_folium import folium_static
+folium_static
 folium.plugins import HeatMap
 folium.plugins import FastMarkerCluster
 requests

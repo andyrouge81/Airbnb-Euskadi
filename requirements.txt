@@ -7,8 +7,8 @@ matplotlib.pyplot
 plotly_express
 streamlit
 base64
-datetime import datetime 
-dateutil.relativedelta import relativedelta
+datetime 
+relativedelta
 requests
 bs4 import BeautifulSoup
 sns.set()

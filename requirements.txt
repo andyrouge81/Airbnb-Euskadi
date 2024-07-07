@@ -16,6 +16,8 @@ plotly
 st_folium
 folium
 folium_static
-folium.plugins import HeatMap
-folium.plugins import FastMarkerCluster
+folium.plugins
+HeatMap
+folium.plugins
+FastMarkerCluster
 requests

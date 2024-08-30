@@ -78,44 +78,8 @@ menu = st.sidebar.radio("Selecciona una opción:", ["Inicio", "Dataframe", "EDA"
 
 
 #---LECTURA---#
-listing = pd.read_csv('listings2.csv')
+listing = pd.read_csv('listingbpi.csv')
 
-
-# ---PREPROCESAMIENTO Y LIMPIEZA---#
-variables = ["id", "name", "host_id", "host_name", "host_response_rate", "host_is_superhost", "host_total_listings_count", "neighbourhood_cleansed", "neighbourhood_group_cleansed", "latitude", "longitude", "property_type", "accommodates", "bathrooms", "bedrooms", "amenities", "price", "minimum_nights", "availability_365", "number_of_reviews", "review_scores_rating", "reviews_per_month", "review_scores_location", 'review_scores_cleanliness','review_scores_value','review_scores_communication','review_scores_checkin', 'review_scores_accuracy','room_type'] 
-listing = listing[variables]
-
-listing.drop(['host_response_rate','review_scores_rating','reviews_per_month'], axis=1, inplace=True)
-
-listing['bathrooms']= listing['bathrooms'].median()
-listing['bedrooms']= listing['bedrooms'].median()
-listing['price'] = listing['price'].str.replace('[\$]', '').str.replace(',','')
-
-listing['bathrooms']= listing['bathrooms'].astype(int)
-listing['bedrooms']= listing['bedrooms'].astype(int)
-listing['price']=listing['price'].astype(float)
-precio_medio = listing['price'].mean()
-listing['price'].round(2)
-listing['price'].fillna(precio_medio, inplace=True)
-
-listing.rename({'name': 'Descripción','host_name':'Anfitrión','host_is_superhost': 'Superhost','host_total_listings_count':'Total_anuncios','neighbourhood_cleansed':'Localidades','neighbourhood_group_cleansed':'Zonas','latitude':'Latitud','longitude':'Longitud','property_type':'Tipo_propiedad','accommodates':'Total_huespedes','bathrooms':'Total_baños','bedrooms':'Total_dormitorios','amenities':'Servicios','price':'Precio','minimum_nights':'Mínima_estancia','availability_365':'Disponibilidad_anual','number_of_reviews':'Total_reseñas'}, axis=1, inplace=True)
-
-listing['Superhost']=listing['Superhost'].str.replace('t','Sí').str.replace('f', 'No')
-
-listing['Localidades'] = listing['Localidades'].str.replace('SebastiÃ¡n', 'Sebastián').str.replace('Ãlava','Álava').str.replace('GuipÃºzcoa','Guipúzcoa').str.replace('AbadiÃ±o','Abadiño').str.replace('EreÃ±o','Ereaño').str.replace('CiÃ©rvana','Ciérvana').str.replace('MaÃ±aria','Mañaria').str.replace('OyÃ³n','Oyón')
-
-listing['Zonas'] = listing['Zonas'].str.replace('Ãlava','Álava').str.replace('GuipÃºzcoa','Guipúzcoa')
-
-listing['Descripción'] = listing['Descripción'].str.replace('+', ' ').str.replace(',','')
-
-listing.rename({'review_scores_location':'Localización','review_scores_cleanliness':'Limpieza','review_scores_value':'Experiencia_General','review_scores_communication':'Comunicación','review_scores_checkin':'Checkin', 'review_scores_accuracy': 'Precisión', 'room_type':'Tipo_habitación'}, axis=1, inplace=True)
-
-listing['Limpieza'].fillna(listing['Limpieza'].mean(), inplace=True)
-listing['Localización'].fillna(listing['Localización'].mean(), inplace=True)
-listing['Experiencia_General'].fillna(listing['Experiencia_General'].mean(), inplace=True)
-listing['Comunicación'].fillna(listing['Comunicación'].mean(), inplace=True)
-listing['Checkin'].fillna(listing['Checkin'].mean(), inplace=True)
-listing['Precisión'].fillna(listing['Precisión'].mean(), inplace=True)
 
 
 #---INICIO---#
@@ -155,8 +119,8 @@ if menu =="Inicio":
 
     # Primera columna: recortes de periodicos
     with columaimagen1:
-        imagen_periodico = (r'Imágenes\airbnb_periodico.PNG')
-        imagen_desconocida = (r'Imágenes\ciudad_desconocida.PNG')
+        imagen_periodico = ('Imágenes/airbnb_periodico.PNG')
+        imagen_desconocida = ('Imágenes/ciudad_desconocida.PNG')
         st.image(imagen_periodico)
         st.image(imagen_desconocida)
         st.markdown(
@@ -168,7 +132,7 @@ if menu =="Inicio":
 
     # Segunda columna: Imagen de la web Airbnb de Euskadi
     with columaimagen2:
-        imagen_web_euskadi = (r'Imágenes\airbnb_web_euskadi.PNG')
+        imagen_web_euskadi = ('Imágenes/airbnb_web_euskadi.PNG')
         st.image(imagen_web_euskadi)
         
         st.markdown(
@@ -193,7 +157,7 @@ if menu =="Inicio":
     
     st.markdown("""<div style="margin-bottom: 20px;"></div>""", unsafe_allow_html=True)
     
-    mapas_juntos = (r'Imágenes\mapas_juntos.png')
+    mapas_juntos = ('Imágenes/mapas_juntos.png')
     
     st.image(mapas_juntos, use_column_width=True, width=700)
     
@@ -298,20 +262,20 @@ if menu == "EDA":
     add_bg_from_url(url_imagen_fondo_eda)
     
     # Rutas de las imagenes utilizadas
-    ruta_grafica1 = r"Imágenes\grafica_01.png"
-    ruta_grafica2 = r"Imágenes\grafica_02.png"
-    ruta_grafica3 = r"Imágenes\grafica_03.png"
-    ruta_grafica4 = r"Imágenes\grafica_04.png"
-    ruta_grafica5 = r"Imágenes\grafica_05.png"
-    ruta_grafica6 = r"Imágenes\grafica_06.png"
-    ruta_grafica7 = r"Imágenes\grafica_07.png"
-    ruta_grafica8 = r"Imágenes\grafica_08.png"
-    ruta_grafica9 = r"Imágenes\grafica_09.png"
-    ruta_grafica10 = r"Imágenes\grafica_10.png"
-    ruta_grafica11 = r"Imágenes\grafica_11.png"
-    ruta_grafica12 = r"Imágenes\grafica_12.png"
-    ruta_grafica13 = r"Imágenes\grafica_13.png"
-    ruta_grafica20 = r"Imágenes\grafica_20.PNG"
+    ruta_grafica1 = "Imágenes/grafica_01.png"
+    ruta_grafica2 = "Imágenes/grafica_02.png"
+    ruta_grafica3 = "Imágenes/grafica_03.png"
+    ruta_grafica4 = "Imágenes/grafica_04.png"
+    ruta_grafica5 = "Imágenes/grafica_05.png"
+    ruta_grafica6 = "Imágenes/grafica_06.png"
+    ruta_grafica7 = "Imágenes/grafica_07.png"
+    ruta_grafica8 = "Imágenes/grafica_08.png"
+    ruta_grafica9 = "Imágenes/grafica_09.png"
+    ruta_grafica10 = "Imágenes/grafica_10.png"
+    ruta_grafica11 = "Imágenes/grafica_11.png"
+    ruta_grafica12 = "Imágenes/grafica_12.png"
+    ruta_grafica13 = "Imágenes/grafica_13.png"
+    ruta_grafica20 = "Imágenes/grafica_20.PNG"
     
     # Título gráfica
     st.markdown("<div style='padding: 10px; border-radius: 5px;'><h1 style='text-align: left; color: #ffffff; font-size: 35px; margin: 0; text-shadow: 6px 6px 6px #000000;'>Total de alojamientos por Zonas</h1></div>", unsafe_allow_html=True)
@@ -579,12 +543,12 @@ if menu == "Pruebas Estadísticas":
 
     add_bg_from_url(url_imagen_fondo_estadistica)
     
-    ruta_grafica14 = r"Imágenes\grafica_14.png"
-    ruta_grafica15 = r"Imágenes\grafica_15.png"
-    ruta_grafica16 = r"Imágenes\grafica_16.png"
-    ruta_grafica17 = r"Imágenes\grafica_17.png"
-    ruta_grafica18 = r"Imágenes\grafica_18.png"
-    ruta_grafica19 = r"Imágenes\grafica_19.png"
+    ruta_grafica14 = "Imágenes/grafica_14.png"
+    ruta_grafica15 = "Imágenes/grafica_15.png"
+    ruta_grafica16 = "Imágenes/grafica_16.png"
+    ruta_grafica17 = "Imágenes/grafica_17.png"
+    ruta_grafica18 = "Imágenes/grafica_18.png"
+    ruta_grafica19 = "Imágenes/grafica_19.png"
 
     tamaños_imagenes = 700
     
@@ -726,9 +690,7 @@ if menu == "Mapas":
         # Mostramos mapa
         folium_static(mapa)
         
-
-### EASTRER EGG -> st.image('https://pbs.twimg.com/media/E_e8qASXIAE6TCq.jpg')
-
+        
 #---POWER BI---#
 
 if menu == "Power Bi":
@@ -769,7 +731,7 @@ if menu == "Conclusión":
         
         st.markdown("<div style='padding: 10px; border-radius: 5px;'><h1 style='text-align: left; color: #ffffff; font-size: 35px; margin: 0; text-shadow: 6px 6px 6px #000000;'>Mapa de correlación de variables 🌡️</h1></div>", unsafe_allow_html=True)
         
-        ruta_grafica19 = r'Imágenes\grafica_19.png'
+        ruta_grafica19 = 'Imágenes/grafica_19.png'
         st.image(ruta_grafica19,width=800)
         
         st.markdown(
@@ -787,7 +749,7 @@ if menu == "Conclusión":
     with colconclusion2:
         st.markdown("<div style='padding: 10px; border-radius: 5px;'><h1 style='text-align: left; color: #ffffff; font-size: 35px; margin: 0; text-shadow: 6px 6px 6px #000000;'>Ejemplos reales de apartamentos en Euskadi 🏘️</h1></div>", unsafe_allow_html=True)
         
-        airbnb_conclusion_foto = (r'Imágenes\airbnb_fotos_euskadi.PNG')
+        airbnb_conclusion_foto = ('Imágenes/airbnb_fotos_euskadi.PNG')
         
         st.image(airbnb_conclusion_foto,width=975)
     
@@ -830,9 +792,9 @@ if menu == "Conclusión":
         
     st.markdown("<div style='padding: 10px; border-radius: 5px;'><h1 style='text-align: left; color: #ffffff; font-size: 35px; margin: 0; text-shadow: 6px 6px 6px #000000;'>Palabras de reseñas ⭐</h1></div>", unsafe_allow_html=True)
     
-    ruta_graficafinal = r'Imágenes\palabras_reseñas.png'
+    ruta_graficafinal = 'Imágenes/palabras_reseñas.png'
     st.image(ruta_graficafinal,width=900)
 
     if st.button('Eskerrik asko, agur 👋', key='123', help=None, on_click=None, args=None, kwargs=None, use_container_width=True):
-        meme = (r'Imágenes\meme.jpg')
+        meme = ('Imágenes/meme.jpg')
         st.image(meme, width=700) 

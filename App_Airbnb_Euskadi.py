@@ -73,7 +73,7 @@ st.markdown(
     unsafe_allow_html=True)
 
 # Sidebar para el menú principal
-st.sidebar.header("Menú principal", divider='rainbow')
+st.sidebar.header("Menú principal")
 menu = st.sidebar.radio("Selecciona una opción:", ["Inicio", "Dataframe", "EDA", "Pruebas Estadísticas", "Mapas","Power Bi","Conclusión"]) # Cinco pilares de la App
 
 
